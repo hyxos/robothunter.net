@@ -1,0 +1,89 @@
+.App {
+  font-family: "Roboto Mono", monospace;
+  text-align: center;
+}
+
+body {
+  background-color: #ffeeda;
+}
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav > * {
+  flex: 1;
+  display: inline-block;
+  margin: 1em;
+}
+
+h1 {
+  font-size: 32px;
+  margin-right: 1.1em;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 0;
+  background-color: white;
+  padding: 0.3em;
+}
+
+#gravity {
+  width: 200px;
+  height: 200px;
+}
+
+img {
+  background-color: #fffae5;
+  display: flex;
+  height: 300px;
+  width: 300px;
+  background-repeat: no-repeat;
+  justify-content: center;
+  margin: auto;
+  border: 5px solid #511111;
+  border-radius: 4px;
+}
+
+.name {
+  margin: auto;
+  margin-top: 10px;
+  min-height: 20px;
+  max-width: 300px;
+  padding: 0.2em;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.error {
+  background-color: crimson;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 500px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+input {
+  font-size: 15px;
+  padding-left: 20px;
+  margin-right: 15px;
+  min-width: 200px;
+  min-height: 25px;
+}
+
+button {
+  font-size: 15px;
+  padding: 0.1em;
+  width: 50px;
+  height: 32px;
+  background-color: #ffbf00;
+}
