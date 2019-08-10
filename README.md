@@ -28,10 +28,6 @@ After that, a repo  was created on [github.com](github.com), a few configuration
 
 Then nostalgia took over, and the search for a good domain name commenced: [robothnter.net](robothunter.net) happened to be available...
 
-## License
-
-MIT
-
 ## Contributing
 
 This is an open source project and all are welcome to contribute, just don't be a jerk. A code of conduct will be implemented if people start acting mean to each other. But we would rather not have to do that so just don't.
@@ -43,3 +39,7 @@ If you see open issues and are feeling up to it, go ahead, come up with a fix an
 ## Complaints
 
 Feel free to complain about how terrible the code is, or layout or whatever. JUST DON'T BE MEAN! And if you are gonna complain, why not offer a better solution anyhow with a pull request that can actually improve the project. Then we will all learn something and you get to show off your superior skills. 
+
+## License
+
+MIT License
