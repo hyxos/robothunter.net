@@ -1,11 +1,11 @@
 import React from "react";
 
 const Logo = () => (
-  <svg width="64" height="64" viewBox="0 0 64 64">
+  <svg id="logo" width="64" height="64" viewBox="0 0 64 64">
     <rect
-      x="0"
+      x="2"
       y="2"
-      width="64"
+      width="60"
       height="60"
       fill="gray"
       stroke="#010101"

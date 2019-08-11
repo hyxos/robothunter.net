@@ -1,44 +1,44 @@
 .App {
   font-family: "Roboto Mono", monospace;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
   background-color: #ffeeda;
 }
+h1 {
+  font-size: 1.8em;
+  margin-right: 1.1em;
+}
+
 nav {
+  flex: 1;
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
 nav > * {
   flex: 1;
-  display: inline-block;
-  margin: 1em;
-}
-
-h1 {
-  font-size: 32px;
-  margin-right: 1.1em;
+  margin: .5em;
 }
 
 h2 {
-  font-size: 20px;
-  margin-top: 0;
+  font-size: 1em;
+  margin: .1em;
   background-color: white;
-  padding: 0.3em;
-}
-
-#gravity {
-  width: 200px;
-  height: 200px;
-}
+  padding: 0.5em;
+} 
 
 img {
   background-color: #fffae5;
   display: flex;
-  height: 300px;
-  width: 300px;
+  max-height: 12em;
+  max-width: 80%;
   background-repeat: no-repeat;
   justify-content: center;
   margin: auto;
@@ -50,8 +50,8 @@ img {
   margin: auto;
   margin-top: 10px;
   min-height: 20px;
-  max-width: 300px;
-  padding: 0.2em;
+  max-width: 15em;
+  padding: 0.2em 0.5em;
   background-color: white;
   border: 1px solid black;
   border-radius: 5px;
@@ -62,28 +62,27 @@ img {
   color: white;
 }
 
-form {
+.form-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  flex-wrap: nowrap;
-  width: 500px;
+  justify-content: space-between;
+}
+
+form {
   margin: auto;
-  margin-top: 10px;
+  margin-bottom: 10px;
+  min-width: 100%;
 }
 
 input {
   font-size: 15px;
-  padding-left: 20px;
-  margin-right: 15px;
-  min-width: 200px;
+  padding: .1em 1em;
+  margin: .2em .2em;
   min-height: 25px;
 }
 
 button {
   font-size: 15px;
-  padding: 0.1em;
-  width: 50px;
-  height: 32px;
+  padding: 0.2em  0.5em;
   background-color: #ffbf00;
 }

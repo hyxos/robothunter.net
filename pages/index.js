@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Logo from "../components/Logo";
 import useDebounce from "../hooks/useDebounce";
 import Head from 'next/head'
-import './styles.css'
+import './robothunter.css'
 
 function arrayBufferToBase64(buffer) {
   let binary = "";
@@ -12,10 +12,10 @@ function arrayBufferToBase64(buffer) {
   return window.btoa(binary);
 }
 
-const fetchRobot = async function(term) {
-  const result = await fetch(`https://robohash.org/${term}`);
+const fetchRobot = async function (term) {
+  const result = await fetch(`https://robohash.org/${term}.datauri?size=250x250`);
   return result.arrayBuffer().then(buffer => {
-    let base64Flag = "data:image/jpeg;base64,";
+    let base64Flag = "data:image/png;base64,";
     let imageStr = arrayBufferToBase64(buffer);
     return base64Flag + imageStr;
   });
@@ -26,7 +26,8 @@ function App() {
   const [name, setName] = useState("");
   const [buffered, setBuffered] = useState("");
   const [error, setError] = useState("A robot has no name?");
-  const debouncedSearchTerm = useDebounce(term, 300);
+  const [isSearching, setIsSearching] = useState(false);
+  const debouncedSearchTerm = useDebounce(term, 500);
 
   const normalizeString = string => string.split(" ").join("-");
   const handleSubmit = event => {
@@ -34,7 +35,9 @@ function App() {
     if (!term) {
       setError("A robot has no name?");
     } else {
+      setIsSearching(true);
       fetchRobot(normalizeString(term)).then(img => {
+        setIsSearching(false);
         setError("");
         setBuffered(img);
         setName(term);
@@ -45,7 +48,9 @@ function App() {
 
   useEffect(() => {
     if (debouncedSearchTerm) {
+      setIsSearching(true);
       fetchRobot(normalizeString(debouncedSearchTerm)).then(img => {
+        setIsSearching(false)
         setError("");
         setBuffered(img);
         setName(debouncedSearchTerm);
@@ -54,31 +59,24 @@ function App() {
   }, [debouncedSearchTerm]);
 
   return (
-    <>
-    <Head>
-      <link href="./styles.css" rel="stylesheet" />
-    </Head>
     <div className="App">
-      <nav>
+      <Head>
+        <link href="./styles.css" rel="stylesheet" />
+        <title>Robot Hunter</title>
+      </Head>
+      <nav className="nav">
         <Logo />
-        <h1>Robot Hunter</h1>
+        <h1>obot Hunter</h1>
       </nav>
-      <h2>Finding Robots since 2019</h2>
-      <img
-        alt="robot"
-        src={buffered ? buffered : "https://robohash.org/gravity?set=set5"}
-      />
-      <div>
-        <div className={error ? "name error" : "name"}>
-          {error ? error : name}
-        </div>
+      <div className="form-wrapper">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="What is your Robot's name?"
+            placeholder="Type your Robot's name"
             value={term}
             onChange={e => setTerm(e.target.value)}
           />
+          <div className="spacer"/>
           <button type="submit">
             <span role="img" aria-label="robot">
               🤖
@@ -86,8 +84,19 @@ function App() {
           </button>
         </form>
       </div>
+      <div className="portrait-wrapper">
+        <img
+          alt="robot"
+          src={buffered ? buffered : "https://robohash.org/gravity?set=set5&size=250x250"}
+        />
+        
+        <div className={error ? "name error" : "name"}>
+          {error ? error : name}
+        </div>
+        <div className="searching">{isSearching && "Searching ..."}</div>
+      </div>
+      <footer>Finding Robots since 2019</footer>
     </div>
-    </>
   );
 }
 
