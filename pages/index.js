@@ -61,43 +61,44 @@ function App() {
   return (
     <div className="App">
       <Head>
-        <link href="./styles.css" rel="stylesheet" />
-        <title>Robot Hunter</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+          <link href="./styles.css" rel="stylesheet" />
+          <title>Robot Hunter</title>
       </Head>
-      <nav className="nav">
-        <Logo />
-        <h1>obot Hunter</h1>
-      </nav>
-      <div className="form-wrapper">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Type your Robot's name"
-            value={term}
-            onChange={e => setTerm(e.target.value)}
-          />
-          <div className="spacer"/>
-          <button type="submit">
-            <span role="img" aria-label="robot">
-              🤖
+        <nav className="nav">
+          <Logo />
+          <h1>obot Hunter</h1>
+        </nav>
+        <div className="form-wrapper">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="What is your robot's name?"
+              value={term}
+              onChange={e => setTerm(e.target.value)}
+            />
+            <div className="spacer" />
+            <button type="submit">
+              <span role="img" aria-label="robot">
+                🤖
             </span>
-          </button>
-        </form>
-      </div>
-      <div className="portrait-wrapper">
-        <img
-          alt="robot"
-          src={buffered ? buffered : "https://robohash.org/gravity?set=set5&size=250x250"}
-        />
-        
-        <div className={error ? "name error" : "name"}>
-          {error ? error : name}
+            </button>
+          </form>
         </div>
-        <div className="searching">{isSearching && "Searching ..."}</div>
-      </div>
-      <footer>Finding Robots since 2019</footer>
-    </div>
-  );
-}
+        <div className="portrait-wrapper">
+          <img
+            alt="robot"
+            src={buffered ? buffered : "https://robohash.org/gravity?set=set5&size=250x250"}
+          />
 
-export default App
+          <div className={error ? "name error" : "name"}>
+            {error ? error : name}
+          </div>
+          <div className="searching">{isSearching && "Searching ..."}</div>
+        </div>
+        <footer>Finding Robots since 2019</footer>
+    </div>
+      );
+    }
+    
+    export default App
